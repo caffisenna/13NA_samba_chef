@@ -18,3 +18,31 @@ The config file, `.chef/config.rb` is a repository-specific configuration file f
 # Next Steps
 
 Read the README file in each of the subdirectories for more information about what goes in those directories.
+
+# 環境
+こんな環境で作りました
+
+- ProductName:	Mac OS X
+- ProductVersion:	10.13.6
+- BuildVersion:	17G11023
+- ruby -v (macportsで入れたrbenvで管理)
+`ruby 2.6.4p104 (2019-08-28 revision 67798) [x86_64-darwin17]`
+- chef -v
+ - ChefDK version: 4.7.73
+ - Chef Infra Client version: 15.7.32
+ - Chef InSpec version: 4.18.51
+ - Test Kitchen version: 2.3.4
+ - Foodcritic version: 16.2.0
+ - Cookstyle version: 5.20.0
+- knife-zero
+
+# 使い方
+1.  repoをcloneする
+2. 対象サーバーにsshでログイン、またパスワードなしでsudoしておけるようにする
+3. repo内で `knife zero bootstrap {対象サーバーIP} -U {sshユーザー名}` を叩く (nodeリストに自動追加される)
+4. `knife node run_list add {対象サーバーFQDN} samba` でレシピをnodeに追加
+5. `knife zero converge {対象サーバーFQDN} -U {sshユーザー名}` で収束させる
+
+## カスタマイズ
+`cookbooks/samba/recipes/default.rb`
+にsambaユーザーとかパスワードがあるので適宜修正する
