@@ -20,7 +20,7 @@ The config file, `.chef/config.rb` is a repository-specific configuration file f
 Read the README file in each of the subdirectories for more information about what goes in those directories.
 
 # 環境
-こんな環境で作りました
+作った環境
 
 - ProductName:	Mac OS X
 - ProductVersion:	10.13.6
@@ -37,8 +37,8 @@ Read the README file in each of the subdirectories for more information about wh
 - knife-zero
 
 # 使い方
-1.  repoをcloneする
-2. 対象サーバーにsshでログイン、またパスワードなしでsudoしておけるようにする
+1. repoをcloneする
+2. 対象サーバーにsshでログイン、またパスワードなしでsudoできるようにする
 3. repo内で `knife zero bootstrap {対象サーバーIP} -U {sshユーザー名}` を叩く (nodeリストに自動追加される)
 4. `knife node run_list add {対象サーバーFQDN} samba` でレシピをnodeに追加
 5. `knife zero converge {対象サーバーFQDN} -U {sshユーザー名}` で収束させる
